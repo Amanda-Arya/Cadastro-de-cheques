@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/style.css">
+    <title>Cadastro de Cheques</title>
+</head>
+
+<body class="bg-dark">
+    <main class="container mt-5 text-lg-center rounded-3">
+        <div class="card ">
+            <form class="bg-light" id="form-cadastro" onsubmit="onSubmit()">
+                <div class="card-header">CADASTRO DE CHEQUES</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3 mb-2">
+                            <label for="banco" class="form-label">BANCO</label>
+                            <select class="form-select" name="banco" id="banco" required="required">
+                                <option selected></option>
+                                <option value="Banco do Brasil">BANCO DO BRASIL</option>
+                                <option value="Bradesco">BRADESCO</option>
+                                <option value="Caixa">CAIXA</option>
+                                <option value="Itau">ITAU</option>
+                                <option value="Mercantil do Brasil">MERCANTIL DO BRASIL</option>
+                                <option value="Santander">SANTANDER</option>
+                                <option value="Sicoob">SICOOB</option>
+                                <option value="Sicredi">SICREDI</option>
+                                <option value="Outros">OUTROS</option>
+                            </select>
+                        </div>
+                        <div class="col-3 md-2">
+                            <label for="inputAgencia" class="form-label">AGÊNCIA</label>
+                            <input type="text" class="form-control" id="inputAgencia" required="required">
+                        </div>
+                        <div class="col-3 md-2">
+                            <label for="inputConta" class="form-label">CONTA</label>
+                            <input type="text" class="form-control" id="inputConta" required="required">
+                        </div>
+                        <div class="col-3 md-2">
+                            <label for="inputNumero" class="form-label">Nº DO CHEQUE</label>
+                            <input type="text" class="form-control" id="inputNumero" required="required">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 md-2">
+                            <label for="pessoa" class="form-label">TIPO PESSOA</label>
+                            <select class="form-select" name="pessoa" id="pessoa" required="required"
+                                onchange="tipoPessoa()">
+                                <option selected></option>
+                                <option value="1">FÍSICA</option>
+                                <option value="2">JURÍDICA</option>
+                            </select>
+                        </div>
+                        <div class="col-5 md-2">
+                            <label for="inputNome" class="form-label">NOME DO TITULAR</label>
+                            <input type="text" class="form-control" id="inputNome" required="required"
+                                onkeyup="caixaAltaNome()">
+                        </div>
+                        <div class="col-4 md-2">
+                            <label for="inputCpfCnpj" class="form-label">CPF/CNPJ</label>
+                            <input type="text" class="form-control" id="inputCpfCnpj" required="required">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-3 md-2">
+                            <label for="inputValor" class="form-label">VALOR</label>
+                            <input type="text" class="form-control" id="inputValor" required="required"
+                                onkeyup="formatarPreco()">
+                        </div>
+                        <div class="col-3 mb-2">
+                            <label for="inputDate" class="form-label">Data de Nascimento:</label>
+                            <input type="date" class="form-control" id="inputDate" name="datanascimento">
+                        </div>
+                    </div>
+                    <div class=" card-footer mt-3">
+                        <div class="card-flex-end">
+                            <button type="button" class="btn btn-danger" onclick="resetForm()">LIMPAR</button>
+                            <button type="button" class="btn btn-primary" onclick="onSubmit()">INSERIR</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <section class="listaCheques container mt-5 text-lg-center rounded-3" style="background-color: white;">
+        <h3>CHEQUES CADASTRADOS</h3>
+
+        <table style="width:100%" class="mt-5">
+            <thead>
+                <tr>
+                    <th>BANCO</th>
+                    <th>NÚMERO</th>
+                    <th>NOME</th>
+                    <th>CPF/CNPJ</th>
+                    <th>AGÊNCIA</th>
+                    <th>CONTA</th>
+                    <th>VALOR</th>
+                    <th>DATA</th>
+                </tr>
+            </thead>
+            <tbody id="table" style="background-color: white;">
+                
+            </tbody>
+    </section>
+    <script src="dist/bootstrap/js/jquery.js"></script>
+    <script src="dist/bootstrap/js/jquery.validate.min.js"></script>
+    <script src="dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/bootstrap/js/script.js"></script>
+</body>
+
+</html>

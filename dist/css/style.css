@@ -1,0 +1,14 @@
+
+.card-header{
+    background-color:  #20b9eb;
+    color: white;
+}
+.card-footer{
+    background-color: #20b8eb23 ;
+}
+.card-flex-end {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
